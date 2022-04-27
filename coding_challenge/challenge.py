@@ -24,7 +24,8 @@ def count_time_units(seconds, time_unit_list, time_units):
     if not time_unit_list:
         return []
     current_time_unit = time_unit_list[0]
-    return [count_time_unit(seconds, time_units[current_time_unit], current_time_unit)] + count_time_units(seconds % time_units[current_time_unit], time_unit_list[1:], time_units)
+    return ([count_time_unit(seconds, time_units[current_time_unit], current_time_unit)] +
+            count_time_units(seconds % time_units[current_time_unit], time_unit_list[1:], time_units))
     
 
 def count_time_unit(seconds, seconds_in_time_unit, time_unit_name):
